@@ -1,0 +1,25 @@
+{
+  "name": "controller-interceptor",
+  "version": "1.0.0",
+  "description": "A simple interceptor for ExpressJs for logging/tracing purposes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandler-barlow/controller-interceptor.git"
+  },
+  "author": "Chandler Barlow <chandlerbrlw@gmail.com> (https://www.chandlerbarlow.com/)",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/chandler-barlow/controller-interceptor/issues"
+  },
+  "homepage": "https://github.com/chandler-barlow/controller-interceptor#readme",
+  "dependencies": {
+    "@types/express": "^4.17.13"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
