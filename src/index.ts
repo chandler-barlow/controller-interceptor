@@ -12,16 +12,21 @@ export interface RequestInfo {
   headers: IncomingHttpHeaders | OutgoingHttpHeaders;
   body: string | Body;
 }
+export interface Options {
+  instanceIdLength?: number;
+  requestIdLength?: number;
+}
 
 function interceptControllers(
   beforeController: (requestInfo: RequestInfo) => void,
-  afterController: (requestInfo: RequestInfo) => void
+  afterController: (requestInfo: RequestInfo) => void,
+  options: Options = { instanceIdLength: 6, requestIdLength: 16 }
 ): (req: Request, res: Response, next: NextFunction) => void {
-  const deviceId: string = randomUUID().slice(0, 6);
+  const deviceId: string = randomUUID().slice(0, options.instanceIdLength);
   return (req: Request, res: Response, next: NextFunction) => {
     const requestId = `${deviceId}-${randomUUID()
       .replaceAll("-", "")
-      .slice(0, 16)}`;
+      .slice(0, options.requestIdLength)}`;
     req.headers.requestId = requestId;
     const requestInfo: RequestInfo = {
       requestId,
