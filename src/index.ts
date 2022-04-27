@@ -3,13 +3,13 @@ import { randomUUID } from "crypto";
 /* TYPES */
 type Body = { [key: string]: string | Body } | string;
 type Params = { [key: string]: string };
-type Headers = { [key: string]: string | number | string[] };
+import { IncomingHttpHeaders, OutgoingHttpHeaders } from "http2";
 export interface RequestInfo {
   requestId: string | string[];
   method: string;
   url: string;
   params: Params;
-  headers: Headers;
+  headers: IncomingHttpHeaders | OutgoingHttpHeaders;
   body: string | Body;
 }
 
