@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Request, Response, NextFunction } from "express";
 declare type Body = {
     [key: string]: string | Body;
@@ -5,16 +6,18 @@ declare type Body = {
 declare type Params = {
     [key: string]: string;
 };
-declare type Headers = {
-    [key: string]: string | number | string[];
-};
+import { IncomingHttpHeaders, OutgoingHttpHeaders } from "http2";
 export interface RequestInfo {
     requestId: string | string[];
     method: string;
     url: string;
     params: Params;
-    headers: Headers;
+    headers: IncomingHttpHeaders | OutgoingHttpHeaders;
     body: string | Body;
 }
-declare function interceptControllers(beforeController: (requestInfo: RequestInfo) => void, afterController: (requestInfo: RequestInfo) => void): (req: Request, res: Response, next: NextFunction) => void;
+export interface Options {
+    instanceIdLength?: number;
+    requestIdLength?: number;
+}
+declare function interceptControllers(beforeController: (requestInfo: RequestInfo) => void, afterController: (requestInfo: RequestInfo) => void, options?: Options): (req: Request, res: Response, next: NextFunction) => void;
 export default interceptControllers;
