@@ -7,7 +7,7 @@ function interceptControllers(beforeController, afterController, options = { ins
         const requestId = `${deviceId}-${(0, crypto_1.randomUUID)()
             .replaceAll("-", "")
             .slice(0, options.requestIdLength)}`;
-        req.headers.requestId = requestId;
+        req.headers["X-Trace-Id"] = requestId;
         const requestInfo = {
             requestId,
             method: req.method,

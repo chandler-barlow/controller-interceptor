@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-
+rm ./index.d.ts
+rm ./index.js
 npm run build
 npm run lint:fix
 
