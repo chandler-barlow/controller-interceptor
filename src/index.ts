@@ -27,7 +27,7 @@ function interceptControllers(
     const requestId = `${deviceId}-${randomUUID()
       .replaceAll("-", "")
       .slice(0, options.requestIdLength)}`;
-    req.headers.requestId = requestId;
+    req.headers["X-Trace-Id"] = requestId;
     const requestInfo: RequestInfo = {
       requestId,
       method: req.method,

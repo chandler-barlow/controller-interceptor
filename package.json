@@ -1,6 +1,6 @@
 {
-  "name": "controller-interceptor",
-  "version": "1.0.0",
+  "name": "@americanairlines/controller-interceptor",
+  "version": "1.0.1",
   "description": "A simple interceptor for ExpressJs for logging/tracing purposes.",
   "main": "index.js",
   "scripts": {
