@@ -2,14 +2,14 @@
 
 _Written in Typescript_
 
-Controller Interceptor is a small Typescript package that allows you to intercept requests to an ExpressJS service and log the request info. Controller interceptor also attaches a trace id to the request headers. The trace id is implemented synchronously and does **not** use async-storage to avoid the performance impact created by other tracing libraries.
+Controller Interceptor is a small Typescript package that allows for the interception of requests made to an ExpressJS service. Controller interceptor also attaches a trace id to the request headers. The trace id is implemented synchronously and does **not** use async-storage. This is to avoid the performance impact caused by calling async storage.
 
 # Usage
 
 To install
 
 ```bash
-$ npm i controller-interceptor
+$ npm i @americanairlines/controller-interceptor
 ```
 
 Create your interceptor
@@ -57,7 +57,7 @@ app.listen(3000);
 
 ### Tracing
 
-The trace ids are of the format `instanceId-requestId`. The instanceId is generated when the server starts, and the requestId is generated when the route is called. This allows for tracaing calls to specific routes as well as tracing requests to a specific instance of a service.
+The trace ids are of the format `X-Trace-Id`. The instanceId is generated when the server starts, and the requestId is generated when the route is called. This allows for tracaing calls to specific routes as well as tracing requests to a specific instance of a service.
 
 ### requestInfo
 
@@ -80,7 +80,7 @@ These functions are not passed the actual body or headers objects, just copies o
 
 ### Options
 
-You can pass options to the interceptor to change the way the trace ids are generated.
+You can pass options to the interceptor.
 
 ```javascript
 const options = {
