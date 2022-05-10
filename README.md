@@ -2,7 +2,7 @@
 
 _Written in Typescript_
 
-Controller Interceptor is a small Typescript package that allows for the interception of requests made to an ExpressJS service. Controller interceptor also attaches a trace id to the request headers. The trace id is implemented synchronously and does **not** use async-storage. This is to avoid the performance impact caused by calling async storage.
+Controller Interceptor is a small Typescript package that allows for the interception of requests made to an ExpressJS service. Controller interceptor also attaches a TraceId to the request headers. The TraceId is implemented synchronously and does **not** use async-storage. This is to avoid the performance impact caused by calling async storage each request.
 
 # Usage
 
@@ -15,7 +15,7 @@ $ npm i @americanairlines/controller-interceptor
 Create your interceptor
 
 ```javascript
-const interceptor = require("controller-interceptor");
+const interceptor = require("@americanairlines/controller-interceptor");
 
 function beforeController(requestInfo) {
   let { requestId, method, url, params, headers, body } = requestInfo;
@@ -57,7 +57,7 @@ app.listen(3000);
 
 ### Tracing
 
-The trace ids are of the format `X-Trace-Id`. The instanceId is generated when the server starts, and the requestId is generated when the route is called. This allows for tracaing calls to specific routes as well as tracing requests to a specific instance of a service.
+The trace ids are of the format `X-Trace-Id`. The instanceId is generated when the server starts, and the requestId is generated when the route is called. This allows for tracing calls to specific routes as well as tracing requests to a specific instance of a service.
 
 ### requestInfo
 
@@ -76,7 +76,7 @@ RequestInfo = {
 
 ### beforeController/afterController
 
-These functions are not passed the actual body or headers objects, just copies of them. You are **not** able to mutate these fields in the handler functions.
+These functions are not passed the actual body or header objects, just copies of them. You are **not** able to mutate these fields in the handler functions.
 
 ### Options
 

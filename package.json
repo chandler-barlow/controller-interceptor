@@ -1,15 +1,17 @@
 {
   "name": "@americanairlines/controller-interceptor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple interceptor for ExpressJs for logging/tracing purposes.",
+  "types": "lib/index.d.ts",
   "main": "./lib/index.js",
+  "files": ["lib/*/**"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "lint": "eslint \"src/*.ts\" --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "prettier -l \"src/*.ts\"",
-    "prepare": "husky install"
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",
