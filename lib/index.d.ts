@@ -13,6 +13,7 @@ export interface RequestInfo {
     url: string;
     params: Params;
     headers: IncomingHttpHeaders | OutgoingHttpHeaders;
+    status: number;
     body: string | Body;
 }
 export interface Options {
