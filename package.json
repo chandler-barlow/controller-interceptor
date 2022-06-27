@@ -1,10 +1,12 @@
 {
   "name": "@americanairlines/controller-interceptor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple interceptor for ExpressJs for logging/tracing purposes.",
-  "types": "lib/index.d.ts",
+  "types": "./lib/index.d.ts",
   "main": "./lib/index.js",
-  "files": ["lib/*/**"],
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
