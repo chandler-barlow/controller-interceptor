@@ -10,6 +10,7 @@ export interface RequestInfo {
   url: string;
   params: Params;
   headers: IncomingHttpHeaders | OutgoingHttpHeaders;
+  status: number;
   body: string | Body;
 }
 export interface Options {
@@ -35,6 +36,7 @@ function interceptControllers(
       params: { ...req.params },
       headers: { ...req.headers },
       body: { ...req.body },
+      status: 200,
     };
     beforeController(requestInfo);
     const selfSend: Send = res.send;
@@ -49,6 +51,7 @@ function interceptControllers(
         ...requestInfo,
         body: outgoingBody,
         headers: outgoingHeaders,
+        status: res.statusCode,
       });
     });
     next();
